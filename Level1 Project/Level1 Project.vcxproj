@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BankingSystemFunc.cpp" />
     <ClCompile Include="BankingSystemVer01.cpp" />
   </ItemGroup>
   <ItemGroup>
