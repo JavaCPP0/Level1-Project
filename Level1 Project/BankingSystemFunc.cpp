@@ -13,6 +13,8 @@ typedef struct Account
 Account Acc[100];
 int AccNum=0;
 
+enum{MAKE=1,DEPOSIT,WITHDRAW,INQURE,EXIT};
+
 void ShowMenu()
 {
 	cout << "-----Menu-----" << endl;
@@ -28,7 +30,7 @@ void MakeAccount()
 	cout << "이름을 입력하세요" << endl;
 	cin>>Acc[AccNum].name;
 
-	cout << "ID를 입력하세요" << endl;
+	cout << "ID를 입력하세요(숫자만)" << endl;
 	cin >> Acc[AccNum].ID;
 
 	Acc[AccNum].money = 0;
@@ -37,23 +39,38 @@ void MakeAccount()
 
 void DepositMoney()
 {
-	
-	while (1)
+	int ID,i;
+	int Dmoney;
+	cout << "ID를 입력하세요(숫자만)" << endl;
+	cin >> ID;
+	cout << "입금할 금액을 입력하세요." << endl;
+	cin >> Dmoney;
+
+	for (i = 0; i < 100; i++)
 	{
-		int ID;
-		cout << "입금할 계좌의 ID를 입력하세요" << endl;
-		cin >> ID;
-
-		if (Acc[ID].name == NULL)
-			cout << "존재하지 않는 계좌입니다.다시 입력하세요" << endl;
-
-		else
+		if (Acc[i].ID == ID)
 		{
-			cout << "입금할 금액을 입력하세요" << endl;
-			cin >> Acc[ID].money;
-			cout << "입금완료" << endl;
+			Acc[i].money += Dmoney;
+			cout << "[입금완료]" << endl;
+			cout << "잔액: " << Acc[i].money << endl;
 			break;
 		}
+
+		if (i == 100)
+		{
+			cout << "유효하지않은 ID입니다." << endl;
+		}
 	}
+
+}
+
+void WithdrawMoney()
+{
+
+}
+
+void ShowAllAccInfo()
+{
+	
 }
 
