@@ -35,8 +35,37 @@
 #include <iostream>
 #include "BankingSystemFunc.h"
 
+using namespace std;
+
 
 int main(void)
 {
+	int choice;
+
+	while (1)
+	{
+		ShowMenu();
+		cin >> choice;
+		switch (choice) {
+			case 1:
+				MakeAccount();
+				break;
+			case 2:
+				DepositMoney();
+				break;
+			case 3:
+				WithdrawMoney();
+				break;
+			case 4:
+				ShowAllAccInfo();
+				break;
+			case 5:
+				return 0;
+				break;
+		}
+			
+
+	}
+
 	return 0;
 }
